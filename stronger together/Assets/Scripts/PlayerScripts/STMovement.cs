@@ -4,6 +4,8 @@ using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+
 public class STMovement : MonoBehaviour
 
 {
@@ -12,7 +14,8 @@ public class STMovement : MonoBehaviour
     public Transform playerCam;
     public Transform orientation;
     public Camera cam;
-
+    public CapsuleCollider bean;
+    private float beanHeight;
     //Other
     private Rigidbody rb;
 /*
@@ -39,7 +42,7 @@ public class STMovement : MonoBehaviour
     public float maxSlopeAngle = 35f;
 
     //Crouch & Slide
-    private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
+    private Vector3 crouchScale;
     private Vector3 playerScale;
     public float slideForce = 400;
     public float slideCounterMovement = 1f;
@@ -88,8 +91,11 @@ public class STMovement : MonoBehaviour
         
 
         playerScale = transform.localScale;
+        crouchScale = new Vector3(playerScale.x, playerScale.y * 0.5f, playerScale.z);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        beanHeight = bean.height;
+        UnityEngine.Debug.Log(beanHeight);
     }
 
 
@@ -147,7 +153,11 @@ public class STMovement : MonoBehaviour
     private void StartCrouch()
     {
         transform.localScale = crouchScale;
-        transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+        if (grounded == true)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - (beanHeight * 0.125f), transform.position.z);
+        }
+            
         /*
         if (rb.velocity.magnitude > 0.5f)
         {
@@ -162,7 +172,11 @@ public class STMovement : MonoBehaviour
     private void StopCrouch()
     {
         transform.localScale = playerScale;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        if (grounded == true)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + beanHeight * 0.125f, transform.position.z);
+        }
+        
     }
 
     private void Movement()

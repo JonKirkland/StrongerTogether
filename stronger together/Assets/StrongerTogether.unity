@@ -846,7 +846,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &5615819545298178073
@@ -956,6 +956,7 @@ MonoBehaviour:
   playerCam: {fileID: 5615819545540820624}
   orientation: {fileID: 5615819543929045134}
   cam: {fileID: 5615819545155043855}
+  bean: {fileID: 5615819545298178072}
   moveSpeed: 4500
   maxSpeed: 20
   crouchSpeed: 7
