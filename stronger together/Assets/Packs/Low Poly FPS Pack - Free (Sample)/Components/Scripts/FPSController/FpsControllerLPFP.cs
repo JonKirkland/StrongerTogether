@@ -36,7 +36,7 @@ namespace FPSControllerLPFP
         private float movementSmoothness = 0.125f;
 
         [Tooltip("Amount of force applied to the player when jumping."), SerializeField]
-        private float jumpForce = 35f;
+        private float jumpForce = 100f;
 
 		[Header("Look Settings")]
         [Tooltip("Rotation speed of the fps controller."), SerializeField]
