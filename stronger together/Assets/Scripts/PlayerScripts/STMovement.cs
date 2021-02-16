@@ -72,11 +72,7 @@ public class STMovement : MonoBehaviour
     public float maxWallRunCameraTilt, wallRunCameraTilt;
 
     //Dashing
-    public float dashForce;
-    public float dashDuration;
-    bool isDashLeft, isDashRight;
-    public float maxDashCameraTilt, dashCameraTilt;
-    int dashCount = 0;
+
 
     private bool shadowDashCooldown = false;
     void Awake()
@@ -344,17 +340,7 @@ public class STMovement : MonoBehaviour
         if (wallRunCameraTilt < 0 && grounded)
             wallRunCameraTilt += Time.deltaTime * maxWallRunCameraTilt * 4;
 
-        //DASH camera tilts, left dash is jagged for no reason, maybe its the a problem with the above section
-        if (Math.Abs(wallRunCameraTilt) < maxDashCameraTilt && isDashRight)
-            wallRunCameraTilt -= Time.deltaTime * maxDashCameraTilt * 1;
-        if (Math.Abs(wallRunCameraTilt) < maxDashCameraTilt && isDashLeft)
-            wallRunCameraTilt += Time.deltaTime * maxDashCameraTilt * 1;
-
-        //Tilts camera back again
-        if (wallRunCameraTilt > 0 && !isDashRight && !isDashLeft)
-            wallRunCameraTilt -= Time.deltaTime * maxDashCameraTilt * 4;
-        if (wallRunCameraTilt < 0 && !isDashRight && !isDashLeft)
-            wallRunCameraTilt += Time.deltaTime * maxDashCameraTilt * 4;
+        
 
 
 

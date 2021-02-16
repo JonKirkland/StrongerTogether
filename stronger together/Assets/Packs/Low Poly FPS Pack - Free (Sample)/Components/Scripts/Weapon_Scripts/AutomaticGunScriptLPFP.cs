@@ -75,6 +75,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	[Header("Bullet Settings")]
 	//Bullet
+	public float gunDamage = 5f;
 	[Tooltip("How much force is applied to the bullet when shooting.")]
 	public float bulletForce = 400.0f;
 	[Tooltip("How long after reloading that the bullet model becomes visible " +
@@ -335,6 +336,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//Shoot automatic
 			if (Time.time - lastFired > 1 / fireRate) 
 			{
+
 				lastFired = Time.time;
 
 				//Remove 1 bullet from ammo
@@ -342,6 +344,16 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 				shootAudioSource.clip = SoundClips.shootSound;
 				shootAudioSource.Play ();
+				RaycastHit hit;
+				if(Physics.Raycast(gunCamera.transform.position, gunCamera.transform.forward, out hit, 300f))
+				{
+					print(hit.transform.name);
+					STEnemyHealth enemyHealth = hit.transform.GetComponent<STEnemyHealth>();
+					if(enemyHealth != null)
+                    {
+						enemyHealth.TakeDamage(gunDamage);
+                    }
+                }
 
 				if (!isAiming) //if not aiming
 				{
