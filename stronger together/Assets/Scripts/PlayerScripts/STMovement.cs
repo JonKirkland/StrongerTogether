@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 public class STMovement : MonoBehaviour
 
@@ -529,7 +530,23 @@ public class STMovement : MonoBehaviour
     private IEnumerator ShadowDash()
     {
         //yield return new WaitForSeconds(0.2f);
-        transform.position = (shadowDashPosition.position);
+
+        Vector3 castDirection = transform.position - shadowDashPosition.position;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position,-castDirection, out hit,castDirection.magnitude))
+        {
+            transform.position = (hit.point);
+        }
+        else
+        {
+            transform.position = shadowDashPosition.position;
+        }
+        
+
+
+
         shadowDashCooldown = true;
         yield return new WaitForSeconds(1);
         shadowDashCooldown = false;
