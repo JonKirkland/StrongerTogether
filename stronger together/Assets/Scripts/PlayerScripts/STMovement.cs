@@ -109,7 +109,7 @@ public class STMovement : MonoBehaviour
 
     private void Update()
     {
-        ResetDash();
+        
         MyInput();
         Look();
         CheckWall();
@@ -501,30 +501,13 @@ public class STMovement : MonoBehaviour
             WallRunStop();
         }
     }
-    /* new dash: teleports player 1 meter in front of himself
-     */
+
     private void Dash() 
-
     {
-        if (Input.GetKeyDown(KeyCode.E) && dashCount < 3)
-        {
-            //dash.Play();
-            StartCoroutine(RightDash());
-            //isDashRight = true;
-
-        }
-        if (Input.GetKeyDown(KeyCode.Q) && dashCount < 3)
-        {
-            //dash.Play();
-            StartCoroutine(LeftDash());
-            //isDashLeft = true;
-        }
         if (Input.GetKeyDown(KeyCode.Mouse1) && shadowDashCooldown == false)
         {
             StartCoroutine(ShadowDash());
         }
-        
-        
 
     }
     private IEnumerator ShadowDash()
@@ -553,38 +536,7 @@ public class STMovement : MonoBehaviour
 
 
     }
-    private IEnumerator RightDash()
-    {
 
-        rb.AddForce(orientation.right * dashForce, ForceMode.VelocityChange);
-        isDashRight = true;
-        dashCount = dashCount + 1;
-        yield return new WaitForSeconds(dashDuration);
-        rb.AddForce(-orientation.right * dashForce, ForceMode.VelocityChange);
-        isDashRight = false;
-
-
-
-
-    }
-    private IEnumerator LeftDash()
-    {
-
-        rb.AddForce(-orientation.right * dashForce, ForceMode.Impulse);
-        isDashLeft = true;
-        dashCount = dashCount + 1;
-        yield return new WaitForSeconds(dashDuration);
-        rb.AddForce(orientation.right * dashForce, ForceMode.Impulse);
-        isDashLeft = false;
-    }
-    private void ResetDash()
-    {
-        if (grounded)
-        {
-            dashCount = 1;
-        }
-        
-    }
     private void LedgeGrab()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
