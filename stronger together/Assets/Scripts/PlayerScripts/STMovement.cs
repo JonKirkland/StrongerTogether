@@ -11,6 +11,7 @@ public class STMovement : MonoBehaviour
 {
 
     //Assingables
+    public Transform shadowDashPosition;
     public Transform playerCam;
     public Transform orientation;
     public Camera cam;
@@ -75,6 +76,7 @@ public class STMovement : MonoBehaviour
     public float maxDashCameraTilt, dashCameraTilt;
     int dashCount = 0;
 
+    private bool shadowDashCooldown = false;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -112,7 +114,7 @@ public class STMovement : MonoBehaviour
         CheckWall();
         WallRunInput();
         Dash();
-        //LedgeGrab();
+        
         //PlayFootsteps();
         MenuChecker();  
     }
@@ -498,6 +500,8 @@ public class STMovement : MonoBehaviour
             WallRunStop();
         }
     }
+    /* new dash: teleports player 1 meter in front of himself
+     */
     private void Dash() 
 
     {
@@ -514,6 +518,22 @@ public class STMovement : MonoBehaviour
             StartCoroutine(LeftDash());
             //isDashLeft = true;
         }
+        if (Input.GetKeyDown(KeyCode.Mouse1) && shadowDashCooldown == false)
+        {
+            StartCoroutine(ShadowDash());
+        }
+        
+        
+
+    }
+    private IEnumerator ShadowDash()
+    {
+        //yield return new WaitForSeconds(0.2f);
+        transform.position = (shadowDashPosition.position);
+        shadowDashCooldown = true;
+        yield return new WaitForSeconds(1);
+        shadowDashCooldown = false;
+
 
     }
     private IEnumerator RightDash()

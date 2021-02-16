@@ -587,6 +587,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756155710}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &966311111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966311112}
+  m_Layer: 0
+  m_Name: shadowDashPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &966311112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966311111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 9.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5615819545155043841}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1340685131
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +741,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5615819545199924905}
+  - {fileID: 966311112}
   m_Father: {fileID: 5615819545540820624}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -789,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5615819545158745646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.127819, y: 3.3, z: -2.831135}
+  m_LocalPosition: {x: 12.52, y: 0.46, z: -0.11}
   m_LocalScale: {x: 0.63, y: 0.2421405, z: 0.63}
   m_Children:
   - {fileID: 5615819545540820624}
@@ -845,10 +876,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 10
+  m_Radius: 0.55184895
+  m_Height: 2.0944924
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.005198282, y: 0.0031760852, z: 0}
 --- !u!23 &5615819545298178073
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -953,6 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abdd9af24c4fdb444a1ee2b5b00d03c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shadowDashPosition: {fileID: 966311112}
   playerCam: {fileID: 5615819545540820624}
   orientation: {fileID: 5615819543929045134}
   cam: {fileID: 5615819545155043855}
