@@ -51,12 +51,13 @@ public class STMovement : MonoBehaviour
 
     //Jumping
     private bool readyToJump = true;
+    private bool jumpTimer = true;
     private float jumpCooldown = 0.25f;
     public float jumpForce = 550f;
 
     //Input
     float x, y;
-    bool jumping, sprinting, crouching, leftDash, rightDash;
+    bool jumping, sprinting, crouching, leftDash, rightDash, newJump;
 
     //Sliding
     private Vector3 normalVector = Vector3.up;
@@ -127,10 +128,17 @@ public class STMovement : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
         jumping = Input.GetButton("Jump");
+        newJump = Input.GetButtonUp("Jump");
         leftDash = Input.GetKey(KeyCode.Q);
         rightDash = Input.GetKey(KeyCode.E);
 
         crouching = Input.GetKey(KeyCode.LeftControl);
+
+        if (jumpTimer && newJump)
+        {
+            readyToJump = true;
+        }
+
 
         //Crouching
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -266,31 +274,30 @@ public class STMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        if (isWallRunning)
+        else if (Physics.Raycast(transform.position,-orientation.right,2))
         {
             //jump.Play(); //jump sfx for walls
             readyToJump = false;
-            if (isWallRunRight)
-            {
-                rb.AddForce(-orientation.right * jumpForce * 1.4f);
+            rb.AddForce(orientation.right * jumpForce * 1.4f);
 
-                //might want to make how far you jump off the wall dependent on speed o.o
-            }
-            if (isWallRunLeft)
-            {
-                rb.AddForce(orientation.right * jumpForce * 1.4f);
-
-            }
             //add some forward force for da boyz
             //rb.AddForce(orientation.forward * jumpForce * 0.2f);
             rb.AddForce(orientation.up * jumpForce * 2.2f);
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        else if(Physics.Raycast(transform.position, orientation.right, 2))
+        {
+            readyToJump = false;
+            rb.AddForce(-orientation.right * jumpForce * 1.4f);
+            rb.AddForce(orientation.up * jumpForce * 2.2f);
+            Invoke(nameof(ResetJump), jumpCooldown);
+            //might want to make how far you jump off the wall dependent on speed o.o
+        }
     }
 
     private void ResetJump()
     {
-        readyToJump = true;
+        jumpTimer = true;
     }
 
     private float desiredX;
