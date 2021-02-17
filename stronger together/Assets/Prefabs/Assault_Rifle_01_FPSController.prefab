@@ -698,7 +698,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5eea69f57b7ce654a8a7a2d6d64ecd82, type: 2}
+  - {fileID: 2100000, guid: 9e05b7dc1b91a2a4e9daa404a40465ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6791,6 +6791,7 @@ MonoBehaviour:
   autoReload: 0
   autoReloadDelay: 0.25
   ammo: 31
+  gunDamage: 5
   bulletForce: 400
   showBulletInMagDelay: 0.6
   bulletInMagRenderer: {fileID: 3790051782397446961}
