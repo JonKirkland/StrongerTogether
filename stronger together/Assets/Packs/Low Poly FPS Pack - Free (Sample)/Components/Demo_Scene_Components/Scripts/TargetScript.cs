@@ -30,36 +30,23 @@ public class TargetScript : MonoBehaviour {
 		//If the target is hit
 		if (isHit == true) 
 		{
-			if (routineStarted == false) 
+			STEnemyHealth enemyHealth = gameObject.GetComponent<STEnemyHealth>();
+			if (enemyHealth != null)
 			{
-				//Animate the target "down"
-				gameObject.GetComponent<Animation> ().Play("target_down");
+				enemyHealth.TakeDamage(5f);
+				//Animate the target hit
+				//gameObject.GetComponent<Animation> ().Play("target_down");
 
 				//Set the downSound as current sound, and play it
-				audioSource.GetComponent<AudioSource>().clip = downSound;
-				audioSource.Play();
+				//audioSource.GetComponent<AudioSource>().clip = downSound;
+				//audioSource.Play();
 
 				//Start the timer
-				StartCoroutine(DelayTimer());
-				routineStarted = true;
+
 			} 
 		}
 	}
 
-	//Time before the target pops back up
-	private IEnumerator DelayTimer () {
-		//Wait for random amount of time
-		yield return new WaitForSeconds(randomTime);
-		//Animate the target "up" 
-		gameObject.GetComponent<Animation> ().Play ("target_up");
-
-		//Set the upSound as current sound, and play it
-		audioSource.GetComponent<AudioSource>().clip = upSound;
-		audioSource.Play();
-
-		//Target is no longer hit
-		isHit = false;
-		routineStarted = false;
-	}
+	
 }
 // ----- Low Poly FPS Pack Free Version -----

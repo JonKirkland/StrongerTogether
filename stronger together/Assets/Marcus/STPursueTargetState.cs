@@ -14,11 +14,15 @@ public class STPursueTargetState : State
     }
     public override State RunCurrentState()
     {
-        float distance = Vector3.Distance(enemyController.target.position, transform.position);
-        print(distance);
+        //float distance = Vector3.Distance(enemyController.target.position, transform.position);
+        //print(distance);
+
         //enemyController.agent.SetDestination(enemyController.target.position);
-        //run at player position, (or sprint) with more speed
-        //if remainingDistance is large then sprint, however remaining distance doesnt work if you have no target, will have to get distance to player
+        //enemyController.anim.SetBool("isMoving", true);
+
+
+
+        /*
         if (distance <= 5 && enemyController.agent.enabled)
         {
             
@@ -37,7 +41,7 @@ public class STPursueTargetState : State
         }
         
         //if lose player, go to last seen position
-
+        */
         return this;
     }
 }
