@@ -4650,6 +4650,7 @@ MonoBehaviour:
   slideForce: 400
   slideCounterMovement: 1
   jumpForce: 550
+  fastFall: 0.05
   wallRunDownVel: -0.1
   wallRunnable:
     serializedVersion: 2
