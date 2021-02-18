@@ -44,26 +44,7 @@ public class STPursueTargetState : State
             }
         }
 
-        /*
-        if (distance <= 5 && enemyController.agent.enabled)
-        {
-            
-            enemyController.anim.SetBool("isSprinting", false);
-            print("I have arrived");
-            enemyController.agent.speed = 5;
-            enemyController.agent.SetDestination(transform.position);
-            return attackState;
-        }
-        if(distance >= 5 && enemyController.agent.enabled)
-        {
-            enemyController.agent.SetDestination(enemyController.target.position);
-            enemyController.anim.SetBool("isSprinting", true);
-            enemyController.agent.speed = 10;
-            return this;
-        }
         
-        //if lose player, go to last seen position
-        */
         return this;
     }
 }
