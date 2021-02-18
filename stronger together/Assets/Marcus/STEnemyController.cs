@@ -23,9 +23,9 @@ public class STEnemyController : MonoBehaviour
     public float turnSpeed = 90;
     public float viewDistance;
     private float viewAngle = 100;
-    public Transform player;
+    
     public LayerMask viewMask;
-    public GameObject thePlayer;
+    
     private bool isDead; //used for stoppping coroutine
     public Transform[] points;
 
@@ -43,10 +43,17 @@ public class STEnemyController : MonoBehaviour
     {
         print(inPatrolState);
         isDead = false;
-        player = thePlayer.transform;
+
+        
         staggered = false;
         anim = GetComponent<Animator>();
-        target = STPlayerManager.instance.player.transform;
+        if (GameObject.FindWithTag("Player") != null)
+        {
+            target = GameObject.FindWithTag("Player").transform;
+            
+
+        }
+        //target = STPlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         setRigidbodyState(true);
         setColliderState(false);
