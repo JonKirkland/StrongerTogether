@@ -54,6 +54,7 @@ public class STMovement : MonoBehaviour
     private bool jumpTimer = true;
     private float jumpCooldown = 0.25f;
     public float jumpForce = 550f;
+    public float fastFall = 0.05f;
 
     //Input
     float x, y;
@@ -200,6 +201,11 @@ public class STMovement : MonoBehaviour
 
         //If holding jump && ready to jump, then jump
         if (readyToJump && jumping) Jump();
+
+        if (!grounded && !jumping)
+        {
+            rb.AddForce(-normalVector * jumpForce * fastFall);
+        }
 
         //Set max speed
         float maxSpeed = this.maxSpeed;
