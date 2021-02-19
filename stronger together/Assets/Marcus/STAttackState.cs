@@ -18,7 +18,7 @@ public class STAttackState : State
 
         return this;
     }
-    /*
+    
     void FaceTarget()
     {
         Vector3 direction = (enemyController.target.position - enemyController.transform.position).normalized;
@@ -26,13 +26,6 @@ public class STAttackState : State
         enemyController.transform.rotation = Quaternion.Slerp(enemyController.transform.rotation, lookRotation, Time.deltaTime * 10f);
     }
 
-    private void StandStill()
-    {
-        //a function to stop enemy sliding too close
-        if (randomNumber >= 4 && randomNumber <= 6 && closeGap == false)
-        {
-            enemyController.agent.SetDestination(transform.position);
-        }
-    }
-    */
+
+    
 }

@@ -15,7 +15,7 @@ public class STEnemyController : MonoBehaviour
     private Vector3 lastPosition;
     public bool foundPlayer;
     public bool staggered;
-    
+    private bool marcusIsKilled = false;
     public GameObject hand;
 
     
@@ -26,7 +26,7 @@ public class STEnemyController : MonoBehaviour
     
     public LayerMask viewMask;
     
-    private bool isDead; //used for stoppping coroutine
+    public bool isDead = false; //used for stoppping coroutine
     
 
     //combo bools
@@ -42,8 +42,8 @@ public class STEnemyController : MonoBehaviour
     void Start()
     {
         print(inPatrolState);
-        isDead = false;
-
+        //isDead = false;
+        marcusIsKilled = false;
         
         staggered = false;
         anim = GetComponent<Animator>();
@@ -99,7 +99,10 @@ public class STEnemyController : MonoBehaviour
 
 
         }
-        
+        if (isDead == true && marcusIsKilled == false)
+        {
+            Die();
+        }
     }
 
    
@@ -109,7 +112,7 @@ public class STEnemyController : MonoBehaviour
         agent.enabled = false;
         setRigidbodyState(false);
         setColliderState(true);
-        
+        marcusIsKilled = true;
         isDead = true;
     }
 
