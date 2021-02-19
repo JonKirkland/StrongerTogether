@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 2989289597452879616}
   m_Layer: 9
   m_Name: Hips
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 960332237332300101}
   m_Layer: 9
   m_Name: QuickRigCharacter_Reference
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 3488965099267157367}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,6 +853,49 @@ Transform:
   m_Father: {fileID: 8383063188627290462}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1582046588444420295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3126988145329194946}
+  - component: {fileID: 8624029298849996160}
+  m_Layer: 9
+  m_Name: STDeadState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3126988145329194946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582046588444420295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4418973884579877379}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8624029298849996160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582046588444420295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97648b97c90a2074da7422c028fd3f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1597254299669307012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1214,7 @@ GameObject:
   - component: {fileID: 2000278899713450736}
   m_Layer: 9
   m_Name: Left_Hand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1519,7 +1562,7 @@ GameObject:
   - component: {fileID: 8383063188627290462}
   m_Layer: 9
   m_Name: QuickRigCharacter_Guides
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2416,6 +2459,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pursueTargetState: {fileID: 4418973884037059801}
   theEnemy: {fileID: 9102302264135898729}
+  deadState: {fileID: 0}
+  viewDistance: 30
+  viewMask:
+    serializedVersion: 2
+    m_Bits: 1280
 --- !u!1 &4418973884037059803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,12 +2507,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27f11bd295ff0c4c99fbca99f0b5f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadState: {fileID: 0}
   attackState: {fileID: 4418973883991288981}
   theEnemy: {fileID: 9102302264135898729}
   viewMask:
     serializedVersion: 2
     m_Bits: 1280
-  viewDistance: 10
+  viewDistance: 20
 --- !u!1 &4418973884579877378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2543,7 @@ Transform:
   m_Children:
   - {fileID: 4418973884037059800}
   - {fileID: 4418973883991288980}
+  - {fileID: 3126988145329194946}
   m_Father: {fileID: 8438073355222748371}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2508,7 +2558,7 @@ GameObject:
   - component: {fileID: 3469686425415844417}
   m_Layer: 9
   m_Name: QuickRigCharacter_Ctrl_Reference
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3178,7 +3228,7 @@ GameObject:
   - component: {fileID: 7891301661552330394}
   m_Layer: 9
   m_Name: Left_Upper_Arm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3358,7 +3408,7 @@ GameObject:
   - component: {fileID: 7366078946326309777}
   m_Layer: 9
   m_Name: Left_Leg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3579,7 +3629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6833921766686234062}
   m_LocalRotation: {x: -0.6022547, y: 0.16490331, z: -0.7699255, w: 0.1315714}
-  m_LocalPosition: {x: -0.0014579518, y: 0.032916132, z: 0.13474356}
+  m_LocalPosition: {x: -0.0055, y: 0.022, z: 0.179}
   m_LocalScale: {x: 0.7307011, y: 0.6989765, z: 0.7383092}
   m_Children: []
   m_Father: {fileID: 2109479728492251061}
@@ -3657,7 +3707,7 @@ GameObject:
   - component: {fileID: 963568554764743609}
   m_Layer: 9
   m_Name: Left_Lower_Arm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4906,7 +4956,7 @@ MonoBehaviour:
   staggered: 0
   hand: {fileID: 0}
   bulletSpawnPoint: {fileID: 1410142406266654989}
-  bullet: {fileID: 3071918848884857063, guid: 1a06955e52b9e1942a0e2a03d653f84d, type: 3}
+  bullet: {fileID: 4879702113200764, guid: 698d9c2fbb627e249b69864554730070, type: 3}
   waitTime: 1
   turnSpeed: 90
   viewDistance: 0
@@ -4928,7 +4978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fed63cdbca7bd94b9143d6f0edc009b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 5
   enemy: {fileID: 9102302264135898726}
 --- !u!114 &9102302264135898724
 MonoBehaviour:

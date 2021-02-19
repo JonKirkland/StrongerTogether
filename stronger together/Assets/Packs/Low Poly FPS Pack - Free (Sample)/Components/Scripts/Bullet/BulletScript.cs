@@ -53,12 +53,25 @@ public class BulletScript : MonoBehaviour {
 		if (collision.transform.tag == "Enemy") 
 		{
 			//Toggle "isHit" on target object
-			collision.transform.gameObject.GetComponent
-				<TargetScript>().isHit = true;
+			collision.transform.gameObject.GetComponent<TargetScript>().EnemyHit();
+			//< TargetScript>().EnemyHit();
+			
 			//Destroy bullet object
 			Destroy(gameObject);
+
 		}
-			
+		if (collision.transform.tag == "Player")
+		{
+			//Toggle "isHit" on target object
+			collision.transform.gameObject.GetComponent
+				<TargetScript>().PlayerHit();
+
+			//Destroy bullet object
+			Destroy(gameObject);
+
+		}
+
+
 		//If bullet collides with "ExplosiveBarrel" tag
 		if (collision.transform.tag == "ExplosiveBarrel") 
 		{
@@ -68,7 +81,19 @@ public class BulletScript : MonoBehaviour {
 			//Destroy bullet object
 			Destroy(gameObject);
 		}
+		if (collision.transform.tag == "Head")
+		{
+			//Toggle "isHit" on target object
+			collision.transform.gameObject.GetComponent
+				<TargetScript>().HeadHit();
+
+			//Destroy bullet object
+			Destroy(gameObject);
+
+		}
 	}
+
+
 
 	private IEnumerator DestroyTimer () 
 	{

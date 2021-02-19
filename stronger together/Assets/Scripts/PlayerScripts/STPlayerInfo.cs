@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo : MonoBehaviour
+public class STPlayerInfo : MonoBehaviour
 {
     public int health;
     
@@ -17,6 +17,7 @@ public class PlayerInfo : MonoBehaviour
     {
         health -= damage;
         print("Health: " + health);
+        print("chicken");
         
     }
 }

@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &910170117667810491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8586670460181753284}
+  - component: {fileID: 8689078521388790058}
+  m_Layer: 9
+  m_Name: STDeadState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8586670460181753284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910170117667810491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5536167071393089590}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8689078521388790058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910170117667810491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97648b97c90a2074da7422c028fd3f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5536167070937687931
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,17 +279,16 @@ MonoBehaviour:
   foundPlayer: 0
   staggered: 0
   hand: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  bullet: {fileID: 0}
   waitTime: 1
   turnSpeed: 90
   viewDistance: 0
+  enemyBulletForce: 200
   viewMask:
     serializedVersion: 2
     m_Bits: 1024
   isDead: 1
-  doneAttackOne: 0
-  doneAttackTwo: 0
-  doneAttackThree: 0
-  comboCancel: 0
   inPatrolState: 1
 --- !u!114 &5536167071006509225
 MonoBehaviour:
@@ -993,6 +1035,7 @@ Transform:
   m_Children:
   - {fileID: 5536167072610232169}
   - {fileID: 5536167072903192110}
+  - {fileID: 8586670460181753284}
   m_Father: {fileID: 5536167071006509203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4038,6 +4081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27f11bd295ff0c4c99fbca99f0b5f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadState: {fileID: 8689078521388790058}
   attackState: {fileID: 5536167072903192097}
   theEnemy: {fileID: 5536167071006509226}
   viewMask:
@@ -4765,8 +4809,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414961f6cf6b2d841b09ecdae6fee8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pursueTargetState: {fileID: 0}
-  theEnemy: {fileID: 0}
+  pursueTargetState: {fileID: 5536167072610232168}
+  theEnemy: {fileID: 5536167071006509226}
+  deadState: {fileID: 8689078521388790058}
+  viewDistance: 0
+  viewMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5536167072924939861
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - Metal
   - ExplosiveBarrel
   - Enemy
+  - Head
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class Possession : MonoBehaviour
     public Transform orientation;
     public LayerMask Enemy;
     public GameObject gunController;
+    public LayerMask Ground;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +29,17 @@ public class Possession : MonoBehaviour
             {
                 if(hit.transform.gameObject.GetComponent<STEnemyController>().isDead == false)
                 {
-                    print("I hit it");
-                    Instantiate(gunController, transform.position, Quaternion.identity);
-                    Destroy(hit.transform.gameObject);
-                    gameObject.SetActive(false);
-                    //Destroy(gameObject);
-                    StartCoroutine(kys());
+                    if (!Physics.Raycast(transform.position, -orientation.up, 1f, Ground))
+                    {
+                        print("I hit it");
+                        Instantiate(gunController, transform.position, Quaternion.identity);
+                        Destroy(hit.transform.gameObject);
+                        gameObject.SetActive(false);
+                        //Destroy(gameObject);
+                        StartCoroutine(kys());
+
+                    }
+                    
                 }
                 
 

@@ -18,13 +18,13 @@ public class STEnemyController : MonoBehaviour
     private bool marcusIsKilled = false;
     public GameObject hand;
     public Transform bulletSpawnPoint;
-    public GameObject bullet;
+    public Transform bullet;
 
     public float waitTime = 1f;
     public float turnSpeed = 90;
     public float viewDistance;
     private float viewAngle = 100;
-    public float enemyBulletForce = 20f;
+    public float enemyBulletForce = 200f;
     public LayerMask viewMask;
     
     public bool isDead = false; //used for stoppping coroutine
@@ -73,7 +73,7 @@ public class STEnemyController : MonoBehaviour
         //anim.SetBool("isMoving", true);
 
 
-
+        
 
 
 
@@ -111,9 +111,10 @@ public class STEnemyController : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = (target.position - bullet.transform.position).normalized * enemyBulletForce;
-
+        var shootBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        shootBullet.GetComponent<Rigidbody>().velocity = (target.position - bulletSpawnPoint.transform.position).normalized * enemyBulletForce;
+        
+        
     }
     
     public void setRigidbodyState(bool state)
