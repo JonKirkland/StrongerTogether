@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 3718998192432047319}
   - component: {fileID: 3701652684986274407}
   - component: {fileID: 3742104944059534105}
+  - component: {fileID: 2395535767361248528}
   m_Layer: 0
   m_Name: Handgun_01_FPSController 1
   m_TagString: Player
@@ -496,7 +497,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.185
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -611,6 +612,21 @@ MonoBehaviour:
     strafe: Vertical
     run: Fire3
     jump: Jump
+--- !u!114 &2395535767361248528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637893023869464479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e98b30e5d21211498273ea9e8b21bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possessionTimer: 10
+  playerPrefab: {fileID: 5958525664550915980, guid: 348d7c6c155c72944b96a4f61e525f66,
+    type: 3}
 --- !u!1 &3637897365923354937
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class STEnemyController : MonoBehaviour
     
     public GameObject hand;
 
-    public Transform pathHolder;
+    
     public float waitTime = 1f;
     public float turnSpeed = 90;
     public float viewDistance;
@@ -27,7 +27,7 @@ public class STEnemyController : MonoBehaviour
     public LayerMask viewMask;
     
     private bool isDead; //used for stoppping coroutine
-    public Transform[] points;
+    
 
     //combo bools
     public bool doneAttackOne = false;
@@ -47,24 +47,22 @@ public class STEnemyController : MonoBehaviour
         
         staggered = false;
         anim = GetComponent<Animator>();
+        
         if (GameObject.FindWithTag("Player") != null)
         {
             target = GameObject.FindWithTag("Player").transform;
             
 
         }
+        
+
         //target = STPlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         setRigidbodyState(true);
         setColliderState(false);
         
         
-        Vector3[] waypoints = new Vector3[pathHolder.childCount];
-        for (int i = 0; i < waypoints.Length; i++)
-        {
-            waypoints[i] = pathHolder.GetChild(i).position;
-        }
-        //StartCoroutine(FollowPath(waypoints));
+       
         
     }
 
@@ -80,9 +78,20 @@ public class STEnemyController : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
 
         //anim.SetBool("isMoving", true);
+
+
+
+
+
+
+        
         if (GameObject.FindWithTag("Player") != null)
         {
             if (target != GameObject.FindWithTag("Player").transform)
+            {
+                target = GameObject.FindWithTag("Player").transform;
+            }
+            if (target != null)
             {
                 target = GameObject.FindWithTag("Player").transform;
             }
@@ -90,7 +99,7 @@ public class STEnemyController : MonoBehaviour
 
 
         }
-
+        
     }
 
    

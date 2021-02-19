@@ -30,9 +30,16 @@ public class Possession : MonoBehaviour
                 Instantiate(gunController, transform.position, Quaternion.identity);
                 Destroy(hit.transform.gameObject);
                 gameObject.SetActive(false);
+                //Destroy(gameObject);
+                StartCoroutine(kys());
 
             }
         }
+    }
+    public IEnumerator kys()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 
 }
