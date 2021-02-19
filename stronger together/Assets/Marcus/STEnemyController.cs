@@ -17,27 +17,20 @@ public class STEnemyController : MonoBehaviour
     public bool staggered;
     private bool marcusIsKilled = false;
     public GameObject hand;
+    public Transform bulletSpawnPoint;
+    public GameObject bullet;
 
-    
     public float waitTime = 1f;
     public float turnSpeed = 90;
     public float viewDistance;
     private float viewAngle = 100;
-    
+    public float enemyBulletForce = 20f;
     public LayerMask viewMask;
     
     public bool isDead = false; //used for stoppping coroutine
     
 
-    //combo bools
-    public bool doneAttackOne = false;
-    public bool doneAttackTwo = false;
-    public bool doneAttackThree = false;
-    public bool comboCancel = false;
-    //private int destPoint = 0;
-
-    //public Vector3 personalLastSighting;
-    //state machine used variables
+    
     public bool inPatrolState = true;
     void Start()
     {
@@ -116,7 +109,12 @@ public class STEnemyController : MonoBehaviour
         isDead = true;
     }
 
+    public void Shoot()
+    {
+        Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = (target.position - bullet.transform.position).normalized * enemyBulletForce;
 
+    }
     
     public void setRigidbodyState(bool state)
     {

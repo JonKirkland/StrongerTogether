@@ -2414,6 +2414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414961f6cf6b2d841b09ecdae6fee8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pursueTargetState: {fileID: 4418973884037059801}
+  theEnemy: {fileID: 9102302264135898729}
 --- !u!1 &4418973884037059803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,7 +2461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackState: {fileID: 4418973883991288981}
   theEnemy: {fileID: 9102302264135898729}
-  player: {fileID: 0}
   viewMask:
     serializedVersion: 2
     m_Bits: 1280
@@ -3553,6 +3554,36 @@ Transform:
   - {fileID: 1104435066555675072}
   m_Father: {fileID: 9182455522723321347}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6833921766686234062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410142406266654989}
+  m_Layer: 9
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410142406266654989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833921766686234062}
+  m_LocalRotation: {x: -0.6022547, y: 0.16490331, z: -0.7699255, w: 0.1315714}
+  m_LocalPosition: {x: -0.0014579518, y: 0.032916132, z: 0.13474356}
+  m_LocalScale: {x: 0.7307011, y: 0.6989765, z: 0.7383092}
+  m_Children: []
+  m_Father: {fileID: 2109479728492251061}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6844704730629221343
 GameObject:
@@ -4874,20 +4905,16 @@ MonoBehaviour:
   foundPlayer: 0
   staggered: 0
   hand: {fileID: 0}
-  pathHolder: {fileID: 0}
+  bulletSpawnPoint: {fileID: 1410142406266654989}
+  bullet: {fileID: 3071918848884857063, guid: 1a06955e52b9e1942a0e2a03d653f84d, type: 3}
   waitTime: 1
   turnSpeed: 90
   viewDistance: 0
-  player: {fileID: 0}
+  enemyBulletForce: 20
   viewMask:
     serializedVersion: 2
     m_Bits: 1024
-  thePlayer: {fileID: 0}
-  points: []
-  doneAttackOne: 0
-  doneAttackTwo: 0
-  doneAttackThree: 0
-  comboCancel: 0
+  isDead: 0
   inPatrolState: 1
 --- !u!114 &9102302264135898727
 MonoBehaviour:

@@ -17,7 +17,8 @@ public class STAttackState : State
     }
     public override State RunCurrentState()
     {
-
+        enemyController.Shoot();
+        FaceTarget();
         return this;
     }
     
@@ -27,6 +28,7 @@ public class STAttackState : State
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         enemyController.transform.rotation = Quaternion.Slerp(enemyController.transform.rotation, lookRotation, Time.deltaTime * 10f);
     }
+    
 
 
     

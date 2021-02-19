@@ -42,8 +42,8 @@ public class STPursueTargetState : State
                     enemyController.anim.SetBool("isMoving", false);
                     //start chase
                     enemyController.agent.SetDestination(transform.position);
-                    
-                    return this;
+
+                    return attackState;
                 }
             }
         }
