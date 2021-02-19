@@ -5,13 +5,15 @@ using UnityEngine;
 public class STAttackState : State
 {
     //states to return
-
+    public STPursueTargetState pursueTargetState;
+    public GameObject theEnemy;
+    STEnemyController enemyController;
     private void Start()
     {
-        
-        
-     
-        
+
+        enemyController = theEnemy.GetComponent<STEnemyController>();
+
+
     }
     public override State RunCurrentState()
     {

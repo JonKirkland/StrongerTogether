@@ -26,12 +26,16 @@ public class Possession : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, orientation.forward, out hit, 1f, Enemy))
             {
-                print("I hit it");
-                Instantiate(gunController, transform.position, Quaternion.identity);
-                Destroy(hit.transform.gameObject);
-                gameObject.SetActive(false);
-                //Destroy(gameObject);
-                StartCoroutine(kys());
+                if(hit.transform.gameObject.GetComponent<STEnemyController>().isDead == false)
+                {
+                    print("I hit it");
+                    Instantiate(gunController, transform.position, Quaternion.identity);
+                    Destroy(hit.transform.gameObject);
+                    gameObject.SetActive(false);
+                    //Destroy(gameObject);
+                    StartCoroutine(kys());
+                }
+                
 
             }
         }

@@ -627,6 +627,8 @@ MonoBehaviour:
   possessionTimer: 10
   playerPrefab: {fileID: 5958525664550915980, guid: 348d7c6c155c72944b96a4f61e525f66,
     type: 3}
+  deadMarcus: {fileID: 5536167071006509226, guid: fa5f76beebee8db44831fef607f543a5,
+    type: 3}
 --- !u!1 &3637897365923354937
 GameObject:
   m_ObjectHideFlags: 0

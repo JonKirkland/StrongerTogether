@@ -242,6 +242,7 @@ MonoBehaviour:
   viewMask:
     serializedVersion: 2
     m_Bits: 1024
+  isDead: 1
   doneAttackOne: 0
   doneAttackTwo: 0
   doneAttackThree: 0
@@ -4764,6 +4765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414961f6cf6b2d841b09ecdae6fee8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pursueTargetState: {fileID: 0}
+  theEnemy: {fileID: 0}
 --- !u!1 &5536167072924939861
 GameObject:
   m_ObjectHideFlags: 0
