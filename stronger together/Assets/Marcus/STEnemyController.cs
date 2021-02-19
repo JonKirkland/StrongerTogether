@@ -78,9 +78,18 @@ public class STEnemyController : MonoBehaviour
     {
         
         float distance = Vector3.Distance(target.position, transform.position);
-        
-        //anim.SetBool("isMoving", true);
 
+        //anim.SetBool("isMoving", true);
+        if (GameObject.FindWithTag("Player") != null)
+        {
+            if (target != GameObject.FindWithTag("Player").transform)
+            {
+                target = GameObject.FindWithTag("Player").transform;
+            }
+            
+
+
+        }
 
     }
 
