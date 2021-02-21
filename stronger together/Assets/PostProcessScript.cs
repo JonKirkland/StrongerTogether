@@ -17,13 +17,7 @@ public class PostProcessScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            DistortionShiftUp();
-        }
-        else{
-            DistortionNormalize();
-        }
+ 
     }
     //WHILE X IS TRUE, FROM A CO-ROUTINE ADD X AMOUNT OF LD EVERY FRAME LD.INTENSITY = LD.INTENSITY + 0.1
     //WHILE X IS FALSE AND LD.INTENSITY DOESNT EQUAL 0, SUBTRACT 0.1 EVERY FRAME OR TIME INCREMENT

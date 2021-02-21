@@ -8,6 +8,10 @@ TagManager:
   - Metal
   - ExplosiveBarrel
   - Enemy
+  - Head
+  - Dead
+  - UI
+  - music
   layers:
   - Default
   - TransparentFX

@@ -432,6 +432,8 @@ GameObject:
   - component: {fileID: 3718998192432047319}
   - component: {fileID: 3701652684986274407}
   - component: {fileID: 3742104944059534105}
+  - component: {fileID: 9186289519254569506}
+  - component: {fileID: 2032020222803113455}
   - component: {fileID: 2395535767361248528}
   m_Layer: 0
   m_Name: Handgun_01_FPSController 1
@@ -601,8 +603,8 @@ MonoBehaviour:
   runningSpeed: 30
   movementSmoothness: 0.125
   jumpForce: 80
-  mouseSensitivity: 2
-  rotationSmoothness: 0.05
+  mouseSensitivity: 1.25
+  rotationSmoothness: 0
   minVerticalAngle: -90
   maxVerticalAngle: 90
   input:
@@ -612,6 +614,38 @@ MonoBehaviour:
     strafe: Vertical
     run: Fire3
     jump: Jump
+--- !u!114 &9186289519254569506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637893023869464479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc4c318247cfe2428546d89544fe5d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHit: 0
+  minTime: 0
+  maxTime: 0
+  upSound: {fileID: 0}
+  downSound: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!114 &2032020222803113455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637893023869464479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f6a6bd121e5dd4cb0968312cdb43ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 15
+  maxHealth: 15
 --- !u!114 &2395535767361248528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,8 +658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e98b30e5d21211498273ea9e8b21bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possessionTimer: 10
   playerPrefab: {fileID: 5958525664550915980, guid: 348d7c6c155c72944b96a4f61e525f66,
+    type: 3}
+  deadMarcus: {fileID: 5536167071006509226, guid: fa5f76beebee8db44831fef607f543a5,
     type: 3}
 --- !u!1 &3637897365923354937
 GameObject:
@@ -11879,14 +11914,14 @@ MonoBehaviour:
   aimFov: 16
   weaponName: Handgun_01
   weaponSway: 0
-  swayAmount: 0.02
-  maxSwayAmount: 0.06
-  swaySmoothValue: 10
+  swayAmount: 0
+  maxSwayAmount: 0
+  swaySmoothValue: 0
   sliderBackTimer: 1.58
   autoReload: 0
   autoReloadDelay: 0.15
   ammo: 9
-  bulletForce: 400
+  bulletForce: 40
   showBulletInMagDelay: 0.6
   bulletInMagRenderer: {fileID: 3715480400417376263}
   grenadeSpawnDelay: 0.35

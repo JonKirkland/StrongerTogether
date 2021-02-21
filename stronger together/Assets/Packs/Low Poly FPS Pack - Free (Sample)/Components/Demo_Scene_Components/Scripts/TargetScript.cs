@@ -4,8 +4,7 @@ using System.Collections;
 // ----- Low Poly FPS Pack Free Version -----
 public class TargetScript : MonoBehaviour {
 
-	float randomTime;
-	bool routineStarted = false;
+
 
 	//Used to check if the target has been hit
 	public bool isHit = false;
@@ -25,15 +24,15 @@ public class TargetScript : MonoBehaviour {
 	private void Update () {
 		
 		//Generate random time based on min and max time values
-		randomTime = Random.Range (minTime, maxTime);
+		
 
 		//If the target is hit
-		if (isHit == true) 
-		{
-			STEnemyHealth enemyHealth = gameObject.GetComponent<STEnemyHealth>();
-			if (enemyHealth != null)
-			{
-				enemyHealth.TakeDamage(5f);
+		//if (isHit == true) 
+		//{
+			//STEnemyHealth enemyHealth = gameObject.GetComponent<STEnemyHealth>();
+			//if (enemyHealth != null)
+			//{
+				//enemyHealth.TakeDamage(5f);
 				//Animate the target hit
 				//gameObject.GetComponent<Animation> ().Play("target_down");
 
@@ -43,10 +42,26 @@ public class TargetScript : MonoBehaviour {
 
 				//Start the timer
 
-			} 
-		}
+			//} 
+		//}
 	}
+    public void EnemyHit()
+    {
+		STEnemyHealth enemyHealth = gameObject.GetComponent<STEnemyHealth>();
+		enemyHealth.TakeDamage(5f);
 
+	}
+	public void HeadHit()
+	{
+		STEnemyHealth enemyHealth = gameObject.GetComponent<STEnemyHealth>();
+		enemyHealth.TakeDamage(15f);
+
+	}
+	public void PlayerHit()
+    {
+		STPlayerInfo playerHealth = gameObject.GetComponent<STPlayerInfo>();
+		playerHealth.Hurt(5);
+	}
 	
 }
 // ----- Low Poly FPS Pack Free Version -----

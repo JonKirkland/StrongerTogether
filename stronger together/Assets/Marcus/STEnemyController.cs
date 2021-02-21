@@ -15,35 +15,29 @@ public class STEnemyController : MonoBehaviour
     private Vector3 lastPosition;
     public bool foundPlayer;
     public bool staggered;
-    
+    private bool marcusIsKilled = false;
     public GameObject hand;
+    public Transform bulletSpawnPoint;
+    public Transform bullet;
 
-    
     public float waitTime = 1f;
     public float turnSpeed = 90;
     public float viewDistance;
     private float viewAngle = 100;
-    
+    public float enemyBulletForce = 200f;
     public LayerMask viewMask;
-    
-    private bool isDead; //used for stoppping coroutine
+
+    public AudioSource enemyShoot;
+    public bool isDead = false; //used for stoppping coroutine
     
 
-    //combo bools
-    public bool doneAttackOne = false;
-    public bool doneAttackTwo = false;
-    public bool doneAttackThree = false;
-    public bool comboCancel = false;
-    //private int destPoint = 0;
-
-    //public Vector3 personalLastSighting;
-    //state machine used variables
+    
     public bool inPatrolState = true;
     void Start()
     {
         print(inPatrolState);
-        isDead = false;
-
+        //isDead = false;
+        marcusIsKilled = false;
         
         staggered = false;
         anim = GetComponent<Animator>();
@@ -80,7 +74,7 @@ public class STEnemyController : MonoBehaviour
         //anim.SetBool("isMoving", true);
 
 
-
+        
 
 
 
@@ -99,9 +93,15 @@ public class STEnemyController : MonoBehaviour
 
 
         }
-        
+        if (isDead == true && marcusIsKilled == false)
+        {
+            Die();
+        }
     }
-
+    public void PlayShootSound()
+    {
+        enemyShoot.Play();
+    }
    
     public void Die()
     {
@@ -109,11 +109,24 @@ public class STEnemyController : MonoBehaviour
         agent.enabled = false;
         setRigidbodyState(false);
         setColliderState(true);
-        
+        marcusIsKilled = true;
         isDead = true;
+        transform.gameObject.tag = "Dead";
+        StartCoroutine(ImmaHeadOut());
+    }
+    private IEnumerator ImmaHeadOut()
+    {
+        yield return new WaitForSeconds(8);
+        Destroy(gameObject);
     }
 
-
+    public void Shoot()
+    {
+        var shootBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        shootBullet.GetComponent<Rigidbody>().velocity = (target.position - bulletSpawnPoint.transform.position).normalized * enemyBulletForce;
+        
+        
+    }
     
     public void setRigidbodyState(bool state)
     {

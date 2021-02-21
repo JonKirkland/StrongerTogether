@@ -8,6 +8,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	//Animator component attached to weapon
 	Animator anim;
 
+	private bool obsoleteMove = false;
+
 	[Header("Gun Camera")]
 	//Main gun camera
 	public Camera gunCamera;
@@ -239,37 +241,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			randomMuzzleflashValue = Random.Range (minRandomValue, maxRandomValue);
 		}
 
-		//Timescale settings
-		//Change timescale to normal when 1 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha1)) 
-		{
-			Time.timeScale = 1.0f;
-			timescaleText.text = "1.0";
-		}
-		//Change timescale to 50% when 2 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha2)) 
-		{
-			Time.timeScale = 0.5f;
-			timescaleText.text = "0.5";
-		}
-		//Change timescale to 25% when 3 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha3)) 
-		{
-			Time.timeScale = 0.25f;
-			timescaleText.text = "0.25";
-		}
-		//Change timescale to 10% when 4 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha4)) 
-		{
-			Time.timeScale = 0.1f;
-			timescaleText.text = "0.1";
-		}
-		//Pause game when 5 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha5)) 
-		{
-			Time.timeScale = 0.0f;
-			timescaleText.text = "0.0";
-		}
+
 
 		//Set current ammo text from ammo int
 		//currentAmmoText.text = currentAmmo.ToString ();
@@ -279,18 +251,18 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		AnimationCheck ();
 
 		//Play knife attack 1 animation when Q key is pressed
-		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting && obsoleteMove) 
 		{
 			anim.Play ("Knife Attack 1", 0, 0f);
 		}
 		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.F) && !isInspecting && obsoleteMove) 
 		{
 			anim.Play ("Knife Attack 2", 0, 0f);
 		}
 			
 		//Throw grenade when pressing G key
-		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
+		if (Input.GetKeyDown (KeyCode.G) && !isInspecting && obsoleteMove) 
 		{
 			StartCoroutine (GrenadeSpawnDelay ());
 			//Play grenade throw animation
@@ -399,13 +371,13 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		}
 
 		//Inspect weapon when pressing T key
-		if (Input.GetKeyDown (KeyCode.T)) 
+		if (Input.GetKeyDown (KeyCode.T) && obsoleteMove) 
 		{
 			anim.SetTrigger ("Inspect");
 		}
 
 		//Toggle weapon holster when pressing E key
-		if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
+		if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered && obsoleteMove) 
 		{
 			holstered = true;
 
@@ -414,7 +386,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 			hasBeenHolstered = true;
 		} 
-		else if (Input.GetKeyDown (KeyCode.E) && hasBeenHolstered) 
+		else if (Input.GetKeyDown (KeyCode.E) && hasBeenHolstered && obsoleteMove) 
 		{
 			holstered = false;
 
