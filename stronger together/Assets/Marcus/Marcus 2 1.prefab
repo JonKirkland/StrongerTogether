@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 301413078720194980}
   m_Layer: 9
   m_Name: Torso
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 2989289597452879616}
   m_Layer: 9
   m_Name: Hips
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 960332237332300101}
   m_Layer: 9
   m_Name: QuickRigCharacter_Reference
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 3488965099267157367}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Head
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -939,7 +939,7 @@ GameObject:
   - component: {fileID: 8649974554860307387}
   m_Layer: 9
   m_Name: Right_Leg
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 2000278899713450736}
   m_Layer: 9
   m_Name: Left_Hand
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 8383063188627290462}
   m_Layer: 9
   m_Name: QuickRigCharacter_Guides
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1647,7 +1647,7 @@ GameObject:
   - component: {fileID: 1541546630717818575}
   m_Layer: 9
   m_Name: Right_Hand
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2459,7 +2459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pursueTargetState: {fileID: 4418973884037059801}
   theEnemy: {fileID: 9102302264135898729}
-  deadState: {fileID: 0}
+  deadState: {fileID: 8624029298849996160}
   viewDistance: 30
   viewMask:
     serializedVersion: 2
@@ -2558,7 +2558,7 @@ GameObject:
   - component: {fileID: 3469686425415844417}
   m_Layer: 9
   m_Name: QuickRigCharacter_Ctrl_Reference
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2703,7 +2703,7 @@ GameObject:
   - component: {fileID: 1693772414214820024}
   m_Layer: 9
   m_Name: Right_Lower_Arm
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3139,7 +3139,7 @@ GameObject:
   - component: {fileID: 3498459158552170156}
   m_Layer: 9
   m_Name: Right_Upper_Arm
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3228,7 +3228,7 @@ GameObject:
   - component: {fileID: 7891301661552330394}
   m_Layer: 9
   m_Name: Left_Upper_Arm
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3408,7 +3408,7 @@ GameObject:
   - component: {fileID: 7366078946326309777}
   m_Layer: 9
   m_Name: Left_Leg
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3707,7 +3707,7 @@ GameObject:
   - component: {fileID: 963568554764743609}
   m_Layer: 9
   m_Name: Left_Lower_Arm
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4826,6 +4826,7 @@ GameObject:
   - component: {fileID: 9102302264135898727}
   - component: {fileID: 9102302264135898724}
   - component: {fileID: 9102302264135898730}
+  - component: {fileID: -1707928591644152266}
   m_Layer: 9
   m_Name: Marcus 2 1
   m_TagString: Enemy
@@ -4964,6 +4965,7 @@ MonoBehaviour:
   viewMask:
     serializedVersion: 2
     m_Bits: 1024
+  enemyShoot: {fileID: -1707928591644152266}
   isDead: 0
   inPatrolState: 1
 --- !u!114 &9102302264135898727
@@ -5011,6 +5013,102 @@ MonoBehaviour:
   upSound: {fileID: 0}
   downSound: {fileID: 0}
   audioSource: {fileID: 0}
+--- !u!82 &-1707928591644152266
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102302264135898729}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.491
+  m_Pitch: 1.4
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9190295597986064017
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,7 +26,8 @@ public class STEnemyController : MonoBehaviour
     private float viewAngle = 100;
     public float enemyBulletForce = 200f;
     public LayerMask viewMask;
-    
+
+    public AudioSource enemyShoot;
     public bool isDead = false; //used for stoppping coroutine
     
 
@@ -97,7 +98,10 @@ public class STEnemyController : MonoBehaviour
             Die();
         }
     }
-
+    public void PlayShootSound()
+    {
+        enemyShoot.Play();
+    }
    
     public void Die()
     {
@@ -107,6 +111,13 @@ public class STEnemyController : MonoBehaviour
         setColliderState(true);
         marcusIsKilled = true;
         isDead = true;
+        transform.gameObject.tag = "Dead";
+        StartCoroutine(ImmaHeadOut());
+    }
+    private IEnumerator ImmaHeadOut()
+    {
+        yield return new WaitForSeconds(8);
+        Destroy(gameObject);
     }
 
     public void Shoot()

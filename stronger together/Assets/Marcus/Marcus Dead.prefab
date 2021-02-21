@@ -150,9 +150,10 @@ GameObject:
   - component: {fileID: 5536167071006509225}
   - component: {fileID: 5536167071006509224}
   - component: {fileID: 5536167071006509227}
+  - component: {fileID: 7504912743452173415}
   m_Layer: 9
   m_Name: Marcus Dead
-  m_TagString: Enemy
+  m_TagString: Dead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -335,6 +336,18 @@ MonoBehaviour:
   upSound: {fileID: 0}
   downSound: {fileID: 0}
   audioSource: {fileID: 0}
+--- !u!114 &7504912743452173415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536167071006509226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09076d31a2f5fb84bb15780911384645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5536167071103059444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2095,7 @@ GameObject:
   - component: {fileID: 5536167071868096828}
   m_Layer: 9
   m_Name: Right_Leg
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2348,7 +2361,7 @@ GameObject:
   - component: {fileID: 5536167071936590693}
   m_Layer: 9
   m_Name: Torso
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3644,7 +3657,7 @@ GameObject:
   - component: {fileID: 5536167072505041578}
   m_Layer: 9
   m_Name: Right_Lower_Arm
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4522,7 +4535,7 @@ GameObject:
   - component: {fileID: 5536167072835165996}
   m_Layer: 9
   m_Name: Right_Hand
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4965,7 +4978,7 @@ GameObject:
   - component: {fileID: 5536167072954174986}
   m_Layer: 9
   m_Name: Right_Upper_Arm
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

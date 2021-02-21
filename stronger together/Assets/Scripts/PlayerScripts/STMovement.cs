@@ -18,15 +18,18 @@ public class STMovement : MonoBehaviour
     public Camera cam;
     public CapsuleCollider bean;
     private float beanHeight;
+    public AudioSource slimeMovement;
     //Other
     private Rigidbody rb;
-/*
-    //SFX
-    public AudioSource[] sound;
-    public AudioSource footstep;
-    public AudioSource jump;
-    public AudioSource dash;
-*/
+    /*
+        //SFX
+        public AudioSource[] sound;
+        public AudioSource footstep;
+        public AudioSource jump;
+        public AudioSource dash;
+    */
+    //get playerinfo
+    STPlayerInfo playerInfo;
     //Rotation and look
     private float xRotation;
     private float sensitivity = 50f;
@@ -84,13 +87,13 @@ public class STMovement : MonoBehaviour
 
     void Start()
     {
-        
+
         //sound = GetComponents<AudioSource>();
         //footstep = sound[0];
         //jump = sound[1];
         //dash = sound[2];
-        
 
+        playerInfo = gameObject.GetComponent<STPlayerInfo>();
         playerScale = transform.localScale;
         crouchScale = new Vector3(playerScale.x, playerScale.y * 0.5f, playerScale.z);
         Cursor.lockState = CursorLockMode.Locked;
@@ -114,7 +117,7 @@ public class STMovement : MonoBehaviour
         WallRunInput();
         Dash();
         
-        //PlayFootsteps();
+        PlaySlimeMovement();
         MenuChecker();  
     }
     /// <summary>
@@ -150,7 +153,12 @@ public class STMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-
+        if (playerInfo.health < 4)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        
         else
         {
 
@@ -202,11 +210,12 @@ public class STMovement : MonoBehaviour
         //If holding jump && ready to jump, then jump
         if (readyToJump && jumping) Jump();
 
+        /*
         if (!grounded && !jumping)
         {
             rb.AddForce(-normalVector * jumpForce * fastFall);
         }
-
+        */
         //Set max speed
         float maxSpeed = this.maxSpeed;
         float crouchSpeed = this.crouchSpeed;
@@ -500,15 +509,18 @@ public class STMovement : MonoBehaviour
             WallRunStop();
         }
     }
-
+    
     private void Dash() 
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Mouse1) && shadowDashCooldown == false)
         {
             StartCoroutine(ShadowDash());
         }
+        */
 
     }
+    
     private IEnumerator ShadowDash()
     {
         //yield return new WaitForSeconds(0.2f);
@@ -553,12 +565,11 @@ public class STMovement : MonoBehaviour
         }
     }
 
-   /* private void PlayFootsteps()
+    private void PlaySlimeMovement()
     {
-        if (grounded == true && rb.velocity.magnitude > 10f && footstep.isPlaying == false)
+        if (grounded == true && rb.velocity.magnitude > 10f && slimeMovement.isPlaying == false)
         {
-            footstep.Play();
+            slimeMovement.Play();
         }
     }
-   */
 }

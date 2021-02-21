@@ -603,8 +603,8 @@ MonoBehaviour:
   runningSpeed: 30
   movementSmoothness: 0.125
   jumpForce: 80
-  mouseSensitivity: 2
-  rotationSmoothness: 0.05
+  mouseSensitivity: 1.25
+  rotationSmoothness: 0
   minVerticalAngle: -90
   maxVerticalAngle: 90
   input:
@@ -658,7 +658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e98b30e5d21211498273ea9e8b21bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possessionTimer: 10
   playerPrefab: {fileID: 5958525664550915980, guid: 348d7c6c155c72944b96a4f61e525f66,
     type: 3}
   deadMarcus: {fileID: 5536167071006509226, guid: fa5f76beebee8db44831fef607f543a5,
@@ -11915,14 +11914,14 @@ MonoBehaviour:
   aimFov: 16
   weaponName: Handgun_01
   weaponSway: 0
-  swayAmount: 0.02
-  maxSwayAmount: 0.06
-  swaySmoothValue: 10
+  swayAmount: 0
+  maxSwayAmount: 0
+  swaySmoothValue: 0
   sliderBackTimer: 1.58
   autoReload: 0
   autoReloadDelay: 0.15
   ammo: 9
-  bulletForce: 400
+  bulletForce: 40
   showBulletInMagDelay: 0.6
   bulletInMagRenderer: {fileID: 3715480400417376263}
   grenadeSpawnDelay: 0.35
